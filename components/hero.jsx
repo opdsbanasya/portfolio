@@ -169,6 +169,8 @@ export default function Hero() {
       { text: "Node.js", color: "#22c55e" },
       { text: "MongoDB", color: "#10b981" },
       { text: "Express", color: "#a78bfa" },
+      { text: "Python", color: "#1A497B" },
+      { text: "FastAPI", color: "#70AE6E" },
       { text: "JWT", color: "#f59e0b" },
       { text: "REST", color: "#38bdf8" },
       { text: "Socket.io", color: "#f472b6" },

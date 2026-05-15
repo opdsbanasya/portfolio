@@ -193,19 +193,19 @@ export default function About() {
             <div>
               <h3 className="text-xl font-semibold text-slate-100 mb-4">Who I am</h3>
               <p className="text-slate-300 leading-relaxed mb-6">
-                I am a results-driven <Highlighter action="underline" color="rgba(250, 204, 21, 0.3)">Full Stack Developer</Highlighter> and <Highlighter color="rgba(250, 204, 21, 0.3)">Freelance Software Engineer</Highlighter> based in Jaipur, specializing in building production-grade, <Highlighter action="underline" color="#fbbf24">scalable web architectures</Highlighter>. With a core focus on the <Highlighter color="rgba(250, 204, 21, 0.3)">MERN Stack</Highlighter> and <Highlighter color="rgba(250, 204, 21, 0.3)">Python (FastAPI)</Highlighter>, I bridge the gap between complex backend logic and seamless, high-performance user interfaces.
+                I am a results-driven Full Stack Developer and Freelance Software Engineer based in Jaipur, specializing in building production-grade, scalable web architectures. With a core focus on the MERN Stack and Python (FastAPI), I bridge the gap between complex backend logic and seamless, high-performance user interfaces.
               </p>
 
               <h4 className="text-lg font-semibold text-slate-200 mb-3">What I Bring to the Table:</h4>
               <ul className="text-slate-300 leading-relaxed space-y-4 mb-6">
                 <li>
-                  <strong className="text-yellow-400">Backend Excellence:</strong> Engineered real-time surveillance platforms like Snoh Vision and AI-integrated pipelines for automated data extraction. I specialize in designing robust RESTful APIs and <Highlighter action="underline" color="#fbbf24">microservices with high availability</Highlighter>.
+                  <strong className="text-yellow-400">Backend Excellence:</strong> Engineered real-time surveillance platforms like Snoh Vision and AI-integrated pipelines for automated data extraction. I specialize in designing robust RESTful APIs and microservices with high availability.
                 </li>
                 <li>
-                  <strong className="text-yellow-400">Performance-First Frontend:</strong> Currently optimizing SEO and load times at Coreweb Software Solutions using <Highlighter color="rgba(250, 204, 21, 0.3)">Next.js (SSR)</Highlighter> and Tailwind CSS to deliver lightning-fast web applications.
+                  <strong className="text-yellow-400">Performance-First Frontend:</strong> Currently optimizing SEO and load times at Coreweb Software Solutions using Next.js (SSR) and Tailwind CSS to deliver lightning-fast web applications.
                 </li>
                 <li>
-                  <strong className="text-yellow-400">Scalability & Security:</strong> Experienced in handling real-time data streams via <Highlighter action="circle" color="#fbbf24">Socket.io</Highlighter>, integrating secure payment gateways like Razorpay, and enforcing strict security standards using JWT authentication.
+                  <strong className="text-yellow-400">Scalability & Security:</strong> Experienced in handling real-time data streams via Socket.io, integrating secure payment gateways like Razorpay, and enforcing strict security standards using JWT authentication.
                 </li>
               </ul>
 
