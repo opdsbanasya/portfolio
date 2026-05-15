@@ -58,7 +58,7 @@ export const previousProjects = [
     company: {
       name: "Coreweb Software Solutions",
       logo: "/companies/corewebLogo.png",
-      link: "https://corewebsolutions.in/"
+      link: "https://corewebsoftware.in/"
     },
     featured: true,
     bullets: [
@@ -74,7 +74,7 @@ export const previousProjects = [
     image: "/portfolio/constructionbazaar.webp",
     tags: ["React", "NextJS", "Tailwind CSS", "In-House Venture", "B2B & B2C"],
     github: null,
-    demo: "https://constructionbazaar.in/",
+    demo: "https://construction-bazaar.com/",
     category: "Professional",
     isdemo: true,
     company: {
@@ -140,7 +140,7 @@ export const previousProjects = [
     image: "/portfolio/ramapoultry.webp",
     tags: ["React", "NextJS", "Tailwind CSS", "Zoho Begin"],
     github: null,
-    demo: "https://ramapoultrycare.com/",
+    demo: "https://ramapoultrycare.in/",
     category: "Professional",
     isdemo: true,
     company: {
@@ -176,9 +176,9 @@ export const previousProjects = [
   {
     title: "NetflixGPT",
     description:
-      "AI-powered movie discovery platform. Problem: Finding movies manually is tedious. Solution: Integrated Llama API with TMDB for intelligent recommendations. Result: Users discover relevant movies in seconds.",
+      "AI-powered movie discovery platform. Problem: Finding movies manually is tedious. Solution: Integrated Grok API with TMDB for intelligent recommendations. Result: Users discover relevant movies in seconds.",
     image: "/portfolio/netflixgpt.webp",
-    tags: ["React.js", "Tailwind CSS", "Firebase", "Llama API", "Redux", "TMDB API"],
+    tags: ["React.js", "Tailwind CSS", "Firebase", "Groq API", "Redux", "TMDB API"],
     github: "https://github.com/opdsbanasya/NetflixGPT.git",
     demo: "https://netflixgpt-ec55f.web.app/",
     isdemo: true,
