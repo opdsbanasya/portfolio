@@ -13,7 +13,7 @@ export const metadata = {
   title: "Dharm's Portfolio - Fullstack Developer",
   description: "Personal portfolio showcasing Node.js, Python, FastAPI development skills and enterprise projects",
   icons: {
-    icon: "https://avatars.githubusercontent.com/u/113586165?v=4",
+    icon: "/favicon.png",
   },
 }
 
@@ -36,3 +36,4 @@ export default function RootLayout({ children }) {
     </html>
   )
 }
+metadata

@@ -64,7 +64,7 @@ export function Pointer(
       <AnimatePresence>
         {isVisible && (
           <motion.div
-            className="pointer-events-none fixed top-0 left-0 z-50"
+            className="pointer-events-none fixed top-0 left-0 z-999"
             style={{
               x,
               y,
