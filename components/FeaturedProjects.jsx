@@ -6,6 +6,8 @@ import { Github, ExternalLink, Briefcase, Code } from 'lucide-react'
 import { previousProjects } from '@/data/previous-projects'
 import ProjectDrawer from './ProjectDrawer'
 import Image from 'next/image'
+import { Lens } from "@/components/ui/lens"
+import { KineticText } from './ui/kinetic-text'
 
 /**
  * Featured projects section for home page
@@ -24,7 +26,7 @@ export default function FeaturedProjects() {
   }
 
   return (
-    <section id="featured-projects" className="py-12 px-4 sm:px-6 lg:px-8">
+    <section id="featured-projects" className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-transparent">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div
@@ -34,7 +36,9 @@ export default function FeaturedProjects() {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-100 mb-2">Featured Projects</h2>
+          <h2 className="text-3xl font-bold w-fit mx-auto">
+            <KineticText as="span" text="Featured Projects" className="mx-1" />
+          </h2>
           <div className="w-24 h-1 bg-yellow-400 mx-auto mb-4"></div>
           <p className="text-slate-300 max-w-2xl mx-auto">
             A selection of my professional work and standout personal projects
@@ -57,37 +61,22 @@ export default function FeaturedProjects() {
               <motion.div
                 whileHover={{ y: -8 }}
                 transition={{ type: 'spring', damping: 20 }}
-                className="h-full rounded-lg overflow-hidden bg-slate-800 border border-slate-700 shadow-lg hover:shadow-2xl transition-all duration-300"
+                className="h-full rounded-2xl overflow-hidden bg-slate-800/40 border border-slate-700/50 shadow-lg hover:shadow-2xl hover:border-slate-600/50 transition-all duration-300"
               >
                 {/* Image Container */}
-                <div className="relative h-48 overflow-hidden bg-slate-900">
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    width={500}
-                    height={500}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                  />
+                <div className="relative h-48 overflow-hidden bg-slate-900 group">
+                  <Lens className="w-full h-full" zoomFactor={1.5} lensSize={150}>
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      width={500}
+                      height={500}
+                      className="w-full h-full object-cover  transition-transform duration-300"
+                    />
+                  </Lens>
 
                   {/* Type Badge */}
                   <div className="absolute top-3 right-3 flex gap-2">
-                    {project.category === 'Professional' ? (
-                      <div className="flex items-center gap-1 px-3 py-1 rounded-full bg-blue-500/10 text-xs font-medium backdrop-blur-md">
-                        {/* <Briefcase size={14} /> */}
-                        <Image
-                          src={project.company.logo}
-                          alt={project.company.name}
-                          width={20} height={20}
-                          className="rounded-full" />
-                        <p className='text-blue-500'> {project.company.name}</p>
-                      </div>
-                    ) : (
-                      <div className="flex items-center gap-1 px-3 py-1 rounded-full bg-purple-500/90 text-white text-xs font-medium backdrop-blur-sm">
-                        <Code size={14} />
-                        Personal
-                      </div>
-                    )}
-
                     {(project.isdemo || project.company.link) && (
                       <div className="px-3 py-1 rounded-full bg-green-500/90 text-white text-xs font-medium backdrop-blur-sm">
                         Live
@@ -151,6 +140,22 @@ export default function FeaturedProjects() {
                       >
                         <ExternalLink size={18} />
                       </a>
+                    )}
+                    {project.category === 'Professional' ? (
+                      <div className="flex items-center gap-1 px-3 py-1 rounded-full hover:bg-blue-500/10 text-xs font-medium backdrop-blur-md">
+                        {/* <Briefcase size={14} /> */}
+                        <Image
+                          src={project.company.logo}
+                          alt={project.company.name}
+                          width={20} height={20}
+                          className="rounded-full" />
+                        <p className='text-blue-500'> {project.company.name}</p>
+                      </div>
+                    ) : (
+                      <div className="flex items-center gap-1 px-3 py-1 rounded-full bg-purple-500/90 text-white text-xs font-medium backdrop-blur-sm">
+                        <Code size={14} />
+                        Personal
+                      </div>
                     )}
                   </div>
                 </div>

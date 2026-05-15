@@ -246,7 +246,7 @@ export const previousProjects = [
     title: "Simon Says Game",
     description:
       "Interactive memory game with vanilla JavaScript. Features progressive difficulty and sound feedback.",
-    image: "/portfolio/simon-says-game.webp",
+    image: "/portfolio/simon-says-game.png",
     tags: ["HTML", "CSS", "JavaScript"],
     github: "https://github.com/opdsbanasya/simon-game.git",
     demo: "https://opdsbanasya.github.io/simon-game/",

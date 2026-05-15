@@ -51,7 +51,7 @@ const structuredCodeLines = [
     { text: '"React.js"', type: "string" },
     { text: ",", type: "punctuation" },
     { text: " ", type: "indent" },
-    { text: '"Express"', type: "string" },
+    { text: '"Express.js"', type: "string" },
     { text: ",", type: "punctuation" },
   ],
   [
@@ -325,7 +325,7 @@ export default function Hero() {
               transition={{ delay: 0.25, duration: 0.6 }}
             >
               <p>Fullstack Developer | Jaipur, Rajasthan</p>
-              <p className="text-yellow-400 font-mono text-base mt-2">Node.js, Python (FastAPI), System Design</p>
+              <p className="text-yellow-400 font-mono text-base mt-2">MERN & Python (FastAPI)</p>
             </motion.div>
 
             <motion.div

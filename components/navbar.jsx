@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { Menu, X } from "lucide-react"
+import { KineticText } from "@/components/ui/kinetic-text"
 
 const navItems = [
   { name: "Home", href: "#home" },
@@ -46,7 +47,7 @@ export default function Navbar() {
 
   const handleNavClick = (e, href) => {
     e.preventDefault()
-    
+
     // If it's an external link like /projects, use default navigation
     if (href.startsWith('/')) {
       window.location.href = href
@@ -64,9 +65,8 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? "bg-slate-900/90 backdrop-blur-sm shadow-sm border-b border-slate-800" : "bg-transparent"
-      }`}
+      className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? "bg-slate-900/90 backdrop-blur-sm shadow-sm border-b border-slate-800" : "bg-transparent"
+        }`}
     >
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <a
@@ -75,8 +75,8 @@ export default function Navbar() {
           onClick={(e) => handleNavClick(e, "#home")}
         >
           <span className="sr-only">Home</span>
-          <span className="text-yellow-400 font-[monospace] font-bold">
-            {`<`}<span className="hover:underline">DharmSingh</span>{`/>`}
+          <span className="text-yellow-400 font-[monospace] font-bold flex items-center">
+            {`<`}<KineticText as="span" text="opdsbanasya" className="mx-1" />{`/>`}
           </span>
         </a>
 
@@ -85,14 +85,13 @@ export default function Navbar() {
             <a
               key={item.name}
               href={item.href}
-              className={`text-sm font-medium transition-colors hover:text-yellow-400 ${
-                activeSection === item.href.substring(1)
+              className={`text-sm font-medium transition-colors hover:text-yellow-400 ${activeSection === item.href.substring(1)
                   ? "text-yellow-400 border-b-2 border-yellow-400"
                   : "text-slate-300"
-              }`}
+                }`}
               onClick={(e) => handleNavClick(e, item.href)}
             >
-              {item.name}
+              <KineticText as="span" text={item.name} className="mx-1" />
             </a>
           ))}
         </nav>
@@ -113,9 +112,8 @@ export default function Navbar() {
               <a
                 key={item.name}
                 href={item.href}
-                className={`text-sm font-medium transition-colors hover:text-yellow-400 ${
-                  activeSection === item.href.substring(1) ? "text-yellow-400" : "text-slate-300"
-                }`}
+                className={`text-sm font-medium transition-colors hover:text-yellow-400 ${activeSection === item.href.substring(1) ? "text-yellow-400" : "text-slate-300"
+                  }`}
                 onClick={(e) => handleNavClick(e, item.href)}
               >
                 {item.name}

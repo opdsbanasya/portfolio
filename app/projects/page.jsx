@@ -7,6 +7,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { previousProjects } from '@/data/previous-projects'
 import ProjectDrawer from '@/components/ProjectDrawer'
+import { Lens } from "@/components/ui/lens"
 
 /**
  * All projects page
@@ -22,8 +23,8 @@ export default function ProjectsPage() {
   }
 
   // Filter projects
-  const filtered = filter === 'all' 
-    ? previousProjects 
+  const filtered = filter === 'all'
+    ? previousProjects
     : previousProjects.filter(p => p.category === filter)
 
   return (
@@ -50,11 +51,10 @@ export default function ProjectsPage() {
               <button
                 key={category}
                 onClick={() => setFilter(category)}
-                className={`px-4 py-2 rounded-full font-medium transition-all ${
-                  filter === category
+                className={`px-4 py-2 rounded-full font-medium transition-all ${filter === category
                     ? 'bg-yellow-400 text-slate-900'
                     : 'bg-slate-700 text-slate-300 hover:bg-slate-600'
-                }`}
+                  }`}
               >
                 {category === 'all' ? 'All Projects' : category}
               </button>
@@ -88,34 +88,19 @@ export default function ProjectsPage() {
                   className="h-full rounded-lg overflow-hidden bg-slate-800 border border-slate-700 shadow-lg hover:shadow-2xl transition-all duration-300"
                 >
                   {/* Image Container */}
-                  <div className="relative h-56 overflow-hidden bg-slate-900">
-                    <Image
-                      src={project.image}
-                      alt={project.title}
-                      width={500}
-                      height={500}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                    />
+                  <div className="relative h-56 overflow-hidden bg-slate-900 group">
+                    <Lens className="w-full h-full" zoomFactor={1.5} lensSize={150}>
+                      <Image
+                        src={project.image}
+                        alt={project.title}
+                        width={500}
+                        height={500}
+                        className="w-full h-full object-cover transition-transform duration-300"
+                      />
+                    </Lens>
 
                     {/* Type Badge */}
                     <div className="absolute top-3 right-3 flex gap-2">
-                      {project.category === 'Professional' ? (
-                        <div className="flex items-center gap-1 px-3 py-1 rounded-full bg-blue-500/10 text-xs font-medium backdrop-blur-md">
-                          {/* <Briefcase size={14} /> */}
-                          <Image
-                            src={project.company.logo}
-                            alt={project.company.name}
-                            width={20} height={20}
-                            className="rounded-full" />
-                          <p className='text-blue-500'> {project.company.name}</p>
-                        </div>
-                      ) : (
-                        <div className="flex items-center gap-1 px-3 py-1 rounded-full bg-purple-500/90 text-white text-xs font-medium backdrop-blur-sm">
-                          <Code size={14} />
-                          Personal
-                        </div>
-                      )}
-                      
                       {(project.isdemo || project.company?.link) && (
                         <div className="px-3 py-1 rounded-full bg-green-500/90 text-white text-xs font-medium backdrop-blur-sm">
                           Live
@@ -179,6 +164,22 @@ export default function ProjectsPage() {
                         >
                           <ExternalLink size={18} />
                         </a>
+                      )}
+                      {project.category === 'Professional' ? (
+                        <div className="flex items-center gap-1 px-3 py-1 rounded-full bg-blue-500/10 text-xs font-medium backdrop-blur-md">
+                          {/* <Briefcase size={14} /> */}
+                          <Image
+                            src={project.company.logo}
+                            alt={project.company.name}
+                            width={20} height={20}
+                            className="rounded-full" />
+                          <p className='text-blue-500'> {project.company.name}</p>
+                        </div>
+                      ) : (
+                        <div className="flex items-center gap-1 px-3 py-1 rounded-full bg-purple-500/90 text-white text-xs font-medium backdrop-blur-sm">
+                          <Code size={14} />
+                          Personal
+                        </div>
                       )}
                       <button
                         onClick={e => {

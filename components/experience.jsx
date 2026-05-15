@@ -3,16 +3,17 @@
 import { motion } from "framer-motion"
 import { Building2, MapPin, MonitorSmartphone, Briefcase } from "lucide-react"
 import Image from "next/image"
+import { KineticText } from "./ui/kinetic-text"
 
 const experiences = [
 
   {
-    title: "Frontend Developer Intern",
+    title: "Full Stack Developer",
     company: "Coreweb Software Solutions",
     location: "Remote",
     mode: "Work from Home",
     tech: ["Next.js", "React", "Tailwind CSS", "Zoho CRM", "SEO"],
-    period: "Recent",
+    period: "December 2025 - Present",
     bullets: [
       "Developed production-ready websites using Next.js with SSR/SSG for optimal SEO and performance; integrated Zoho CRM for lead management and client tracking.",
       "Implemented responsive Tailwind CSS designs with smooth animations and accessibility features (ARIA labels, semantic HTML) across multiple client projects.",
@@ -28,13 +29,15 @@ const experiences = [
     tech: ["Node.js", "Express.js", "Python", "FastAPI", "MongoDB", "PostgreSQL", "Socket.io"],
     period: "October 2025 – April 2026",
     bullets: [
-      "Architected and deployed Snoh Vision, a high-availability surveillance backend handling real-time video streams using FastAPI, async processing, and socket.io for live feed delivery to 1000+ concurrent users.",
-      "Designed scalable REST APIs for surveillance systems with robust error handling, JWT authentication, pagination, and database optimization for high-throughput data ingestion.",
+      "Engineered scalable backend logic for \"Snoh Vision\", a live surveillance platform, ensuring high availability and fault tolerance for real-time data streams.",
+      "Designed robust REST APIs and optimized database schemas to handle high-concurrency training logs, model metrics, and automated alert systems.",
       "Built Python microservices using FastAPI with async/await patterns, database connection pooling, and middleware for CORS, rate limiting, and request validation.",
+      "Contributed automation features to \"Snoh Fusion\", including Email Watchers for mailbox monitoring and multi-document invoice processing pipelines with AI-based extraction.",
+      "Integrated frontend components with backend services to ensure seamless user experience while maintaining strict API security standards.",
     ],
     logo: "/companies/bminfotrade.png"
   },
-  
+
 ]
 
 /**
@@ -43,16 +46,18 @@ const experiences = [
  */
 export default function Experience() {
   return (
-    <section id="experience" className="py-20 bg-slate-900">
+    <section id="experience" className="py-16 md:py-24 bg-transparent">
       <div className="container mx-auto px-4">
         <motion.div
-          initial={{ opacity: 0, y: 14 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-10"
+          className="text-center mb-12"
         >
-          <h2 className="text-3xl font-bold">Experience</h2>
+          <h2 className="text-3xl font-bold w-fit mx-auto">
+            <KineticText as="span" text="Experience" className="mx-1" />
+          </h2>
           <div className="w-28 h-1 bg-yellow-400 mx-auto mt-2"></div>
         </motion.div>
 
@@ -64,7 +69,7 @@ export default function Experience() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="rounded-xl border border-slate-800 bg-slate-800/60 p-6 shadow-lg"
+              className="rounded-xl border border-slate-700/50 bg-slate-800/40 hover:bg-slate-800/60 transition-all duration-300 p-6 shadow-lg"
             >
               <header className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
                 <div>

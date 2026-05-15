@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { motion } from "framer-motion"
 import { Send, Linkedin, Github, Mail, CheckCircle, Instagram, Facebook, Twitter } from "lucide-react"
+import { KineticText } from "./ui/kinetic-text"
 
 /**
  * Contact section with form and social media links
@@ -41,16 +42,18 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="py-20 bg-slate-900">
+    <section id="contact" className="py-16 md:py-24 bg-transparent">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl font-bold text-slate-100">Get In Touch</h2>
+          <h2 className="text-3xl font-bold w-fit mx-auto">
+            <KineticText as="span" text="Get In Touch" className="mx-1" />
+          </h2>
           <div className="w-20 h-1 bg-yellow-400 mx-auto mt-2"></div>
           <p className="text-slate-300 mt-4 max-w-2xl mx-auto">
             Have a question or want to work together? Feel free to reach out!
@@ -62,7 +65,7 @@ export default function Contact() {
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.5 }}
             className="md:w-1/2"
           >
             <h3 className="text-xl font-semibold text-slate-100 mb-6">Send Me a Message</h3>
@@ -86,7 +89,7 @@ export default function Contact() {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 border border-slate-600 bg-slate-800 text-slate-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-slate-700/50 bg-slate-800/40 text-slate-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:bg-slate-800/60 transition-colors"
                   placeholder="Your Name"
                 />
               </div>
@@ -102,7 +105,7 @@ export default function Contact() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 border border-slate-600 bg-slate-800 text-slate-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-slate-700/50 bg-slate-800/40 text-slate-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:bg-slate-800/60 transition-colors"
                   placeholder="your.email@example.com"
                 />
               </div>
@@ -118,7 +121,7 @@ export default function Contact() {
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="w-full px-4 py-2 border border-slate-600 bg-slate-800 text-slate-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-slate-700/50 bg-slate-800/40 text-slate-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:bg-slate-800/60 transition-colors"
                   placeholder="Your message here..."
                 />
               </div>
@@ -146,7 +149,7 @@ export default function Contact() {
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.5 }}
             className="md:w-1/2"
           >
             <h3 className="text-xl font-semibold text-slate-100 mb-6">Connect With Me</h3>
