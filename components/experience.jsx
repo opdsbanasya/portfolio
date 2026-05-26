@@ -15,9 +15,10 @@ const experiences = [
     tech: ["Next.js", "React", "Tailwind CSS", "Zoho CRM", "SEO"],
     period: "December 2025 - Present",
     bullets: [
-      "Developed production-ready websites using Next.js with SSR/SSG for optimal SEO and performance; integrated Zoho CRM for lead management and client tracking.",
-      "Implemented responsive Tailwind CSS designs with smooth animations and accessibility features (ARIA labels, semantic HTML) across multiple client projects.",
-      "Collaborated with backend teams on API integration, authentication flows, and state management using Redux for complex data flows.",
+      "Delivered 7+ high-performance portfolio websites by developing secure backend logic and dynamic content management systems.",
+      "Built a scalable B2C business listing directory, managing third-party integrations and database connections (PostgreSQL & Prisma) to ensure reliable content delivery and system stability.",
+      "Implemented server-side rendering (SSR) in Next.js to optimize load times and improve SEO performance.",
+      "Developed reusable, accessible UI components and optimized overall web performance utilizing Next.js (SSR) and Tailwind CSS.",
     ],
     logo: "/companies/corewebLogo.png"
   },
