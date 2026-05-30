@@ -364,7 +364,7 @@ export default function Hero() {
                 Download Resume
               </motion.a>
             </motion.div>
-          </motion.div>
+          </motion.div> 
 
           {/* Editor mockup with typed resume code */}
           <motion.div
