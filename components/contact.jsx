@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { useForm } from "react-hook-form"
 import { motion } from "framer-motion"
 import { Send, Linkedin, Github, Mail, CheckCircle, Instagram, Facebook, Twitter } from "lucide-react"
 import { KineticText } from "./ui/kinetic-text"
@@ -10,35 +11,43 @@ import { KineticText } from "./ui/kinetic-text"
  * @returns {JSX.Element}
  */
 export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm()
 
-  const handleChange = (e) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({ ...prev, [name]: value }))
-  }
-
-  const handleSubmit = async (e) => {
-    e.preventDefault()
+  const onSubmit = async (data) => {
     setIsSubmitting(true)
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500))
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      })
 
-    // Reset form and show success message
-    setFormData({ name: "", email: "", message: "" })
-    setIsSubmitting(false)
-    setIsSubmitted(true)
-
-    // Hide success message after 5 seconds
-    setTimeout(() => {
-      setIsSubmitted(false)
-    }, 5000)
+      if (response.ok) {
+        setIsSubmitted(true)
+        reset()
+        setTimeout(() => {
+          setIsSubmitted(false)
+        }, 5000)
+      } else {
+        const errorData = await response.json()
+        alert(`Failed to send message: ${errorData.message}`)
+      }
+    } catch (error) {
+      console.error("Form submission error:", error)
+      alert("An error occurred while submitting the form. Please try again later.")
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -77,7 +86,7 @@ export default function Contact() {
               </div>
             ) : null}
 
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit(onSubmit)}>
               <div className="mb-4">
                 <label htmlFor="name" className="block text-slate-300 mb-2">
                   Name
@@ -85,13 +94,11 @@ export default function Contact() {
                 <input
                   type="text"
                   id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
+                  {...register("name", { required: "Name is required" })}
                   className="w-full px-4 py-3 border border-slate-700/50 bg-slate-800/40 text-slate-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:bg-slate-800/60 transition-colors"
                   placeholder="Your Name"
                 />
+                {errors.name && <p className="text-red-500 mt-1">{errors.name.message}</p>}
               </div>
 
               <div className="mb-4">
@@ -101,13 +108,17 @@ export default function Contact() {
                 <input
                   type="email"
                   id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
+                  {...register("email", {
+                    required: "Email is required",
+                    pattern: {
+                      value: /^\S+@\S+$/i,
+                      message: "Invalid email address",
+                    },
+                  })}
                   className="w-full px-4 py-3 border border-slate-700/50 bg-slate-800/40 text-slate-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:bg-slate-800/60 transition-colors"
                   placeholder="your.email@example.com"
                 />
+                {errors.email && <p className="text-red-500 mt-1">{errors.email.message}</p>}
               </div>
 
               <div className="mb-6">
@@ -116,14 +127,12 @@ export default function Contact() {
                 </label>
                 <textarea
                   id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
+                  {...register("message", { required: "Message is required" })}
                   rows={5}
                   className="w-full px-4 py-3 border border-slate-700/50 bg-slate-800/40 text-slate-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:bg-slate-800/60 transition-colors"
                   placeholder="Your message here..."
                 />
+                {errors.message && <p className="text-red-500 mt-1">{errors.message.message}</p>}
               </div>
 
               <motion.button
@@ -221,6 +230,7 @@ export default function Contact() {
                   aria-label="X"
                 >
                   <Twitter size={20} />
+
                 </motion.a>
               </div>
             </div>

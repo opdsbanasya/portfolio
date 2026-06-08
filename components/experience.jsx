@@ -10,7 +10,7 @@ const experiences = [
   {
     title: "Full Stack Developer",
     company: "Coreweb Software Solutions",
-    location: "Remote",
+    location: "Jaipur",
     mode: "Work from Home",
     tech: ["Next.js", "React", "Node.js", "SQL", "Tailwind CSS", "API Integration"],
     period: "December 2025 - Present",
