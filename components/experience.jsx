@@ -12,7 +12,7 @@ const experiences = [
     company: "Coreweb Software Solutions",
     location: "Remote",
     mode: "Work from Home",
-    tech: ["Next.js", "React", "Tailwind CSS", "Zoho CRM", "SEO"],
+    tech: ["Next.js", "React", "Node.js", "SQL", "Tailwind CSS", "API Integration"],
     period: "December 2025 - Present",
     bullets: [
       "Delivered 7+ high-performance portfolio websites by developing secure backend logic and dynamic content management systems.",

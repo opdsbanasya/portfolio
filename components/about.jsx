@@ -212,7 +212,7 @@ export default function About() {
               <h4 className="text-lg font-semibold text-slate-200 mb-3">Technical DNA:</h4>
               <ul className="text-slate-300 leading-relaxed space-y-2">
                 <li>
-                  <strong className="text-slate-400">Stack:</strong> Next.js, React, Node.js, Python (FastAPI), MongoDB, SQL.
+                  <strong className="text-slate-400">Stack:</strong> Next.js, React, Node.js, Express.js, Python (FastAPI), MongoDB, SQL.
                 </li>
                 <li>
                   <strong className="text-slate-400">Cloud & Tools:</strong> AWS, Azure, Postman (API Fundamentals Student Expert), and Socket.io.

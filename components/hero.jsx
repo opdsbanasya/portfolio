@@ -354,7 +354,7 @@ export default function Hero() {
                 Contact
               </motion.a>
               <motion.a
-                href="/resume.pdf"
+                href="https://drive.google.com/drive/folders/1B5cWr8JMibTwt2uNQf4vRN6j20VVowUU?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 border-2 border-slate-300 text-slate-300 hover:bg-slate-300 hover:text-slate-900 font-medium py-3 px-6 rounded-full transition-all duration-300"
