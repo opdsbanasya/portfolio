@@ -244,12 +244,3 @@ body {
   background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
   border: 1px solid #fbbf24;
 }
-
-/* Hide default cursor globally so custom colored pointer replaces it */
-@media (any-hover: hover) and (any-pointer: fine) {
-  *,
-  *::before,
-  *::after {
-    cursor: none !important;
-  }
-}

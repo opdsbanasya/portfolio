@@ -53,6 +53,9 @@ const structuredCodeLines = [
     { text: " ", type: "indent" },
     { text: '"Express.js"', type: "string" },
     { text: ",", type: "punctuation" },
+    { text: " ", type: "indent" },
+    { text: '"Next.js"', type: "string" },
+    { text: ",", type: "punctuation" },
   ],
   [
     { text: "    ", type: "indent" },
@@ -70,7 +73,7 @@ const structuredCodeLines = [
   ],
   [
     { text: "  ", type: "indent" },
-    { text: "message", type: "property" },
+    { text: "about", type: "property" },
     { text: ":", type: "punctuation" },
     { text: " ", type: "plain" },
     { text: "I build scalable and efficient web applications", type: "string" },
@@ -165,7 +168,8 @@ export default function Hero() {
 
     const jsSymbols = [
       { text: "const", color: "#fbbf24" },
-      { text: "React", color: "#61dafb" },
+      { text: "React", color: "#58B0FE" },
+      { text: "Next", color: "#000000" },
       { text: "Node.js", color: "#22c55e" },
       { text: "MongoDB", color: "#10b981" },
       { text: "Express", color: "#a78bfa" },
@@ -176,6 +180,7 @@ export default function Hero() {
       { text: "Socket.io", color: "#f472b6" },
       { text: "npm", color: "#cb3837" },
       { text: "AWS", color: "#ff9900" },
+      { text: "types", color: "#60a5fa" },
       { text: "JSON", color: "#fef3c7" },
       { text: "Payments", color: "#4ade80" },
       { text: "var", color: "#f87171" },
@@ -188,6 +193,9 @@ export default function Hero() {
       { text: "bcrypt", color: "#6b7280" },
       { text: "cookie", color: "#fcd34d" },
       { text: "crypto", color: "#8b5cf6" },
+      { text: "auth", color: "#D7E5EC" },
+      { text: "AI", color: "#323E86" },
+      { text: "Prisma", color: "#323E86" }
     ]
 
     const count = Math.min(Math.floor(window.innerWidth / 25), 50)

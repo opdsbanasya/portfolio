@@ -8,7 +8,9 @@ import {
   SiJsonwebtokens, SiSocketdotio, SiMongoose,
   SiGsap,
   SiShadcnui, SiVercel, SiNetlify, SiGithubpages,
-  SiVite, SiEslint, SiPrettier, SiNotion
+  SiVite, SiEslint, SiPrettier, SiNotion,
+  SiTypescript,
+  SiPrisma
 } from "react-icons/si"
 import { VscVscode, VscAzure } from "react-icons/vsc";
 import { FaAws } from "react-icons/fa";
@@ -25,8 +27,9 @@ const skillCategories = [
     skills: [
       { name: "React", icon: SiReact, color: "text-[#61DAFB]" },
       { name: "Next.js", icon: SiNextdotjs, color: "text-slate-200" },
-      { name: "Redux", icon: SiRedux, color: "text-[#764ABC]" },
       { name: "JavaScript", icon: SiJavascript, color: "text-[#F7DF1E]" },
+      { name: "TypeScript", icon: SiTypescript, color: "text-[#007ACC]" },
+      { name: "Redux", icon: SiRedux, color: "text-[#764ABC]" },
       { name: "HTML5", icon: SiHtml5, color: "text-[#E34F26]" },
     ]
   },
@@ -50,6 +53,7 @@ const skillCategories = [
       { name: "PostgreSQL", icon: SiPostgresql, color: "text-[#4169E1]" },
       { name: "MySQL", icon: SiMysql, color: "text-[#4479A1]" },
       { name: "Mongoose", icon: SiMongoose, color: "text-[#880000]" },
+      { name: "Prisma", icon: SiPrisma, color: "text-[#E9322D]" },
     ]
   },
   {
