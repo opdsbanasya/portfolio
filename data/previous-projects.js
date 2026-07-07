@@ -1,50 +1,6 @@
 export const previousProjects = [
   // Professional Work - Featured
-  {
-    title: "Snoh Vision",
-    description:
-      "Enterprise-grade live surveillance system backend. High-availability FastAPI service handling real-time video stream processing with 1000+ concurrent users.",
-    image: "/portfolio/snohvision.png",
-    tags: ["Python", "FastAPI", "MySQL", "Socket.io", "React.js", "SSE", "Redux Toolikit", "Tailwind Css"],
-    github: null,
-    demo: null,
-    isdemo: false,
-    category: "Professional",
-    featured: true,
-    company: {
-      name: "BM Infotrade",
-      logo: "/companies/bminfotrade.png",
-      link: "https://snohai.com/products/snoh-vision/"
-    },
-    bullets: [
-      "Designed scalable FastAPI microservice architecture for high-throughput video stream ingestion and processing.",
-      "Implemented WebSocket connections via Socket.io for real-time live feed delivery to multiple concurrent clients.",
-      "Optimized database queries with PostgreSQL indexing and connection pooling, reducing latency from 500ms to 50ms per request.",
-    ],
-  },
   
-  {
-    title: "Snoh Fusion",
-    description:
-      "Full-stack MERN application demonstrating clean architecture patterns. RESTful APIs with proper error handling, JWT auth, and MongoDB optimization.",
-    image: "/portfolio/snohfusion.png",
-    tags: ["MERN", "Express.js", "MongoDB", "JWT", "Redux"],
-    github: null,
-    demo: null,
-    isdemo: false,
-    category: "Professional",
-    featured: true,
-    company: {
-      name: "BM Infotrade",
-      logo: "/companies/bminfotrade.png",
-      link: "https://snohai.com/products/snoh-fusion/"
-    },
-    bullets: [
-      "Built RESTful API architecture with proper error handling and middleware implementation.",
-      "Implemented JWT authentication with secure token refresh logic.",
-      "Optimized MongoDB queries with indexing and pagination for performance.",
-    ],
-  },
   {
     title: "Coreweb Software Solutions",
     description:
@@ -153,6 +109,51 @@ export const previousProjects = [
       "Built a seamless platform allowing poultry farmers in Jaipur to access high-quality medicines.",
       "Connected the front-end with Zoho Begin to manage inventory inquiries and customer data effectively.",
       "Delivered a performant NextJS application tailored for easy navigation by local farmers."
+    ],
+  },
+  {
+    title: "Snoh Vision",
+    description:
+      "Enterprise-grade live surveillance system backend. High-availability FastAPI service handling real-time video stream processing with 1000+ concurrent users.",
+    image: "/portfolio/snohvision.png",
+    tags: ["Python", "FastAPI", "MySQL", "Socket.io", "React.js", "SSE", "Redux Toolikit", "Tailwind Css"],
+    github: null,
+    demo: null,
+    isdemo: false,
+    category: "Professional",
+    featured: true,
+    company: {
+      name: "BM Infotrade",
+      logo: "/companies/bminfotrade.png",
+      link: "https://snohai.com/products/snoh-vision/"
+    },
+    bullets: [
+      "Designed scalable FastAPI microservice architecture for high-throughput video stream ingestion and processing.",
+      "Implemented WebSocket connections via Socket.io for real-time live feed delivery to multiple concurrent clients.",
+      "Optimized database queries with PostgreSQL indexing and connection pooling, reducing latency from 500ms to 50ms per request.",
+    ],
+  },
+  
+  {
+    title: "Snoh Fusion",
+    description:
+      "Full-stack MERN application demonstrating clean architecture patterns. RESTful APIs with proper error handling, JWT auth, and MongoDB optimization.",
+    image: "/portfolio/snohfusion.png",
+    tags: ["MERN", "Express.js", "MongoDB", "JWT", "Redux"],
+    github: null,
+    demo: null,
+    isdemo: false,
+    category: "Professional",
+    featured: true,
+    company: {
+      name: "BM Infotrade",
+      logo: "/companies/bminfotrade.png",
+      link: "https://snohai.com/products/snoh-fusion/"
+    },
+    bullets: [
+      "Built RESTful API architecture with proper error handling and middleware implementation.",
+      "Implemented JWT authentication with secure token refresh logic.",
+      "Optimized MongoDB queries with indexing and pagination for performance.",
     ],
   },
   // Personal Projects
