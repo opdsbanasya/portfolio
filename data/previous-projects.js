@@ -8,7 +8,7 @@ export const previousProjects = [
     image: "/portfolio/coreweb.png",
     tags: ["Next.js", "React", "Tailwind CSS", "Headless CMS", "SEO"],
     github: null,
-    demo: null,
+    demo: "https://corewebsoftware.in/",
     category: "Professional",
     isdemo: false,
     company: {
@@ -28,7 +28,7 @@ export const previousProjects = [
     description:
       "A smart platform connecting homeowners directly with local shops, material suppliers, and construction experts. We've built this to simplify how people find trusted professionals for building their dream homes.",
     image: "/portfolio/constructionbazaar.webp",
-    tags: ["React", "NextJS", "Tailwind CSS", "In-House Venture", "B2B & B2C"],
+    tags: ["NextJS", "PostgreSQL", "Prisma", "Tailwind CSS", "In-House Venture", "B2B & B2C"],
     github: null,
     demo: "https://construction-bazaar.com/",
     category: "Professional",
@@ -116,9 +116,9 @@ export const previousProjects = [
     description:
       "Enterprise-grade live surveillance system backend. High-availability FastAPI service handling real-time video stream processing with 1000+ concurrent users.",
     image: "/portfolio/snohvision.png",
-    tags: ["Python", "FastAPI", "MySQL", "Socket.io", "React.js", "SSE", "Redux Toolikit", "Tailwind Css"],
+    tags: ["Python", "FastAPI", "MySQL", "Socket.io", "React.js", "SSE", "AI Vision Model Integration", "Redux Toolikit", "Tailwind CSS"],
     github: null,
-    demo: null,
+    demo: "https://snohai.com/products/snoh-vision/",
     isdemo: false,
     category: "Professional",
     featured: true,
@@ -139,9 +139,9 @@ export const previousProjects = [
     description:
       "Full-stack MERN application demonstrating clean architecture patterns. RESTful APIs with proper error handling, JWT auth, and MongoDB optimization.",
     image: "/portfolio/snohfusion.png",
-    tags: ["MERN", "Express.js", "MongoDB", "JWT", "Redux"],
+    tags: ["MERN", "Express.js", "MongoDB", "JWT", "Redux", "OpenAI API"],
     github: null,
-    demo: null,
+    demo: "https://snohai.com/products/snoh-fusion/",
     isdemo: false,
     category: "Professional",
     featured: true,

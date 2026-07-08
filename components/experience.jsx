@@ -1,12 +1,11 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { Building2, MapPin, MonitorSmartphone, Briefcase } from "lucide-react"
-import Image from "next/image"
-import { KineticText } from "./ui/kinetic-text"
+import { useRef } from "react";
+import { motion, useScroll, useSpring } from "framer-motion";
+import { MapPin, MonitorSmartphone, Briefcase } from "lucide-react";
+import Image from "next/image";
 
 const experiences = [
-
   {
     title: "Full Stack Developer",
     company: "Coreweb Software Solutions",
@@ -16,7 +15,7 @@ const experiences = [
     period: "December 2025 - Present",
     bullets: [
       "Delivered 7+ high-performance portfolio websites by developing secure backend logic and dynamic content management systems.",
-      "Built a scalable B2C business listing directory, managing third-party integrations and database connections (PostgreSQL & Prisma) to ensure reliable content delivery and system stability.",
+      "Built a scalable B2C business listing directory, managing third-party integrations and database connections (PostgreSQL & Prisma).",
       "Implemented server-side rendering (SSR) in Next.js to optimize load times and improve SEO performance.",
       "Developed reusable, accessible UI components and optimized overall web performance utilizing Next.js (SSR) and Tailwind CSS.",
     ],
@@ -30,97 +29,125 @@ const experiences = [
     tech: ["Node.js", "Express.js", "Python", "FastAPI", "MongoDB", "PostgreSQL", "Socket.io"],
     period: "October 2025 – April 2026",
     bullets: [
-      "Engineered scalable backend logic for \"Snoh Vision\", a live surveillance platform, ensuring high availability and fault tolerance for real-time data streams.",
-      "Designed robust REST APIs and optimized database schemas to handle high-concurrency training logs, model metrics, and automated alert systems.",
-      "Built Python microservices using FastAPI with async/await patterns, database connection pooling, and middleware for CORS, rate limiting, and request validation.",
-      "Contributed automation features to \"Snoh Fusion\", including Email Watchers for mailbox monitoring and multi-document invoice processing pipelines with AI-based extraction.",
-      "Integrated frontend components with backend services to ensure seamless user experience while maintaining strict API security standards.",
+      "Engineered scalable backend logic for \"Snoh Vision\", a live surveillance platform, ensuring high availability and fault tolerance.",
+      "Designed robust REST APIs and optimized database schemas to handle high-concurrency training logs.",
+      "Built Python microservices using FastAPI with async/await patterns, database connection pooling, and middleware.",
+      "Contributed automation features to \"Snoh Fusion\", including Email Watchers and AI-based extraction.",
     ],
     logo: "/companies/bminfotrade.png"
   },
+];
 
-]
-
-/**
- * Experience section with work history and roles
- * @returns {JSX.Element}
- */
-export default function Experience() {
+const ExperienceItem = ({ role }) => {
   return (
-    <section id="experience" className="py-16 md:py-24 bg-transparent">
-      <div className="container mx-auto px-4">
+    <div className="relative pl-8 md:pl-0">
+      <div className="md:hidden absolute left-0 top-2 w-4 h-4 rounded-full bg-yellow-400 border-4 border-black z-10"></div>
+      
+      <motion.article
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.6 }}
+        className="glass-card rounded-3xl p-8 shadow-2xl relative group overflow-hidden"
+      >
+        <div className="absolute inset-0 bg-gradient-to-r from-yellow-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        
+        <header className="flex flex-col md:flex-row md:items-start md:justify-between gap-6 mb-8 relative z-10">
+          <div className="flex gap-4 items-start">
+            <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 p-2 shrink-0 flex items-center justify-center">
+              {role.logo ? (
+                <Image src={role.logo} alt={role.company} width={32} height={32} className="object-contain" />
+              ) : (
+                <Briefcase className="text-yellow-400" />
+              )}
+            </div>
+            <div>
+              <h3 className="text-2xl font-bold text-white tracking-tight">{role.title}</h3>
+              <div className="text-yellow-400 font-medium text-lg mt-1">{role.company}</div>
+            </div>
+          </div>
+          
+          <div className="flex flex-col gap-2 text-sm text-slate-400 shrink-0 md:text-right">
+            <span className="flex items-center md:justify-end gap-2">
+              <Briefcase size={14} className="text-slate-500" /> {role.period}
+            </span>
+            <span className="flex items-center md:justify-end gap-2">
+              <MapPin size={14} className="text-slate-500" /> {role.location}
+            </span>
+            <span className="flex items-center md:justify-end gap-2">
+              <MonitorSmartphone size={14} className="text-slate-500" /> {role.mode}
+            </span>
+          </div>
+        </header>
+
+        <div className="mb-6 flex flex-wrap gap-2 relative z-10">
+          {role.tech.map((t) => (
+            <span key={t} className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-slate-300 text-xs font-mono">
+              {t}
+            </span>
+          ))}
+        </div>
+
+        <ul className="space-y-4 relative z-10">
+          {role.bullets.map((b, i) => (
+            <li key={i} className="text-slate-400 leading-relaxed pl-6 relative">
+              <span className="absolute left-0 top-2.5 w-1.5 h-1.5 rounded-full bg-yellow-400/50"></span>
+              {b}
+            </li>
+          ))}
+        </ul>
+      </motion.article>
+    </div>
+  );
+};
+
+export default function Experience() {
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start center", "end center"],
+  });
+
+  const scaleY = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
+
+  return (
+    <section id="experience" className="py-24 relative z-10 bg-black">
+      <div className="container mx-auto px-4 max-w-5xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-12"
+          className="text-center mb-20"
         >
-          <h2 className="text-3xl font-bold w-fit mx-auto">
-            <KineticText as="span" text="Experience" className="mx-1" />
+          <h2 className="text-5xl md:text-6xl font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white to-white/50">
+            Journey
           </h2>
-          <div className="w-28 h-1 bg-yellow-400 mx-auto mt-2"></div>
         </motion.div>
 
-        <div className="space-y-6 max-w-4xl mx-auto">
-          {experiences.map((role, idx) => (
-            <motion.article
-              key={role.company}
-              initial={{ opacity: 0, y: 14 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="rounded-xl border border-slate-700/50 bg-slate-800/40 hover:bg-slate-800/60 transition-all duration-300 p-6 shadow-lg"
-            >
-              <header className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
-                <div>
-                  <h3 className="text-xl font-semibold text-slate-100">{role.title}</h3>
-                  <div className="text-slate-300 flex items-center gap-2">
-                    <Image
-                      src={role.logo}
-                      alt={role.company}
-                      width={24}
-                      height={24}
-                      className="rounded-full"
-                    /> {role.company}
-                  </div>
-                </div>
-                <div className="flex items-center gap-4 text-sm text-slate-400">
-                  <span className="flex items-center gap-1">
-                    <MapPin size={14} className="text-yellow-400" /> {role.location}
-                  </span>
-                  <span className="flex items-center gap-1">
-                    <MonitorSmartphone size={14} className="text-yellow-400" /> {role.mode}
-                  </span>
-                  <span className="flex items-center gap-1">
-                    <Briefcase size={14} className="text-yellow-400" /> {role.period}
-                  </span>
-                </div>
-              </header>
+        <div className="relative" ref={containerRef}>
+          {/* Scroll Progress Line (Desktop) */}
+          <div className="hidden md:block absolute left-[30px] top-4 bottom-0 w-px bg-white/10 origin-top">
+            <motion.div 
+              className="absolute top-0 w-full bg-yellow-400 origin-top" 
+              style={{ scaleY, bottom: 0 }}
+            />
+          </div>
 
-              <div className="mt-4 flex flex-wrap gap-2">
-                {role.tech.map((t) => (
-                  <span
-                    key={t}
-                    className="px-2.5 py-1 rounded-full bg-slate-900 border border-slate-700 text-slate-200 text-xs"
-                  >
-                    {t}
-                  </span>
-                ))}
+          <div className="space-y-12 md:pl-20">
+            {experiences.map((role, idx) => (
+              <div key={idx} className="relative">
+                {/* Node dot on the line */}
+                <div className="hidden md:block absolute -left-[57px] top-6 w-4 h-4 rounded-full bg-black border-[3px] border-yellow-400 z-10"></div>
+                <ExperienceItem role={role} />
               </div>
-
-              <ul className="mt-4 space-y-2">
-                {role.bullets.map((b, i) => (
-                  <li key={i} className="text-slate-300 leading-relaxed pl-5 relative">
-                    <span className="absolute left-0 top-2 inline-block w-1.5 h-1.5 rounded-full bg-yellow-400"></span>
-                    {b}
-                  </li>
-                ))}
-              </ul>
-            </motion.article>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>
-  )
+  );
 }

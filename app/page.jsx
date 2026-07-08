@@ -1,46 +1,38 @@
 import Hero from "@/components/hero"
-import About from "@/components/about"
+import BentoSection from "@/components/BentoSection"
+import TechnicalMarquee from "@/components/TechnicalMarquee"
 import Experience from "@/components/experience"
-import Technical from "@/components/technical"
-import FeaturedProjects from "@/components/FeaturedProjects"
+import ParallaxProjects from "@/components/ParallaxProjects"
+import Pricing from "@/components/Pricing"
 import Contact from "@/components/contact"
 import Footer from "@/components/footer"
-import SectionCard from "@/components/SectionCard"
 
 /**
- * Home page with card-based layout
+ * Home page with premium award-winning layout
  * @returns {JSX.Element}
  */
 export default function Home() {
   return (
-    <main className="min-h-screen bg-slate-900 text-slate-100">
+    <main className="min-h-screen bg-black text-slate-100 selection:bg-yellow-400/30 selection:text-yellow-200">
       <Hero />
       
-      {/* Card-based sections layout */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
-        <SectionCard id="about">
-          <About />
-        </SectionCard>
+      {/* Bento Grid replaces About & Technical summary */}
+      <BentoSection />
 
-        <SectionCard id="experience">
-          <Experience />
-        </SectionCard>
+      {/* Detailed Infinite Marquee Technical Section */}
+      <TechnicalMarquee />
 
-        <SectionCard id="technical">
-          <Technical />
-        </SectionCard>
-      </div>
+      {/* Experience Section */}
+      <Experience />
 
-      {/* Featured Projects - full width */}
-      <FeaturedProjects />
+      {/* Parallax Projects Showcase */}
+      <ParallaxProjects />
+
+      {/* Freelance Pricing Section */}
+      <Pricing />
 
       {/* Contact and Footer */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <SectionCard id="contact">
-          <Contact />
-        </SectionCard>
-      </div>
-
+      <Contact />
       <Footer />
     </main>
   )

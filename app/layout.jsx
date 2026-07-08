@@ -1,9 +1,10 @@
-import { Inter } from "next/font/google"
+import { GeistSans } from "geist/font/sans"
+import { GeistMono } from "geist/font/mono"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import Navbar from "@/components/navbar"
-
-const inter = Inter({ subsets: ["latin"] })
+import LenisProvider from "@/components/LenisProvider"
+import CustomCursor from "@/components/CustomCursor"
 
 /**
  * @type {import('next').Metadata}
@@ -24,14 +25,16 @@ export const metadata = {
  */
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
+    <html lang="en" suppressHydrationWarning className={`${GeistSans.variable} ${GeistMono.variable}`}>
+      <body className={`${GeistSans.className} antialiased bg-black text-slate-100 cursor-none selection:bg-yellow-400/30 selection:text-yellow-200`}>
         <ThemeProvider attribute="class" defaultTheme="dark">
-          <Navbar />
-          {children}
+          <LenisProvider>
+            <CustomCursor />
+            <Navbar />
+            {children}
+          </LenisProvider>
         </ThemeProvider>
       </body>
     </html>
   )
 }
-metadata

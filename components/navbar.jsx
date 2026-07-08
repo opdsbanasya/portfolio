@@ -7,9 +7,10 @@ import { KineticText } from "@/components/ui/kinetic-text"
 const navItems = [
   { name: "Home", href: "#home" },
   { name: "About", href: "#about" },
-  { name: "Experience", href: "#experience" },
   { name: "Technical", href: "#technical" },
-  { name: "Projects", href: "/projects" },
+  { name: "Experience", href: "#experience" },
+  { name: "Projects", href: "#projects" },
+  { name: "Pricing", href: "#pricing" },
   { name: "Contact", href: "#contact" },
 ]
 
@@ -80,7 +81,7 @@ export default function Navbar() {
           </span>
         </a>
 
-        <nav className="hidden md:flex space-x-8">
+        <nav className="hidden lg:flex space-x-8">
           {navItems.map((item) => (
             <a
               key={item.name}
@@ -97,7 +98,7 @@ export default function Navbar() {
         </nav>
 
         <button
-          className="md:hidden text-slate-300 hover:text-yellow-400 transition-colors"
+          className="lg:hidden text-slate-300 hover:text-yellow-400 transition-colors"
           onClick={toggleMenu}
           aria-label={isOpen ? "Close menu" : "Open menu"}
         >
@@ -106,7 +107,7 @@ export default function Navbar() {
       </div>
 
       {isOpen && (
-        <div className="md:hidden bg-slate-900 border-t border-slate-800">
+        <div className="lg:hidden bg-slate-900 border-t border-slate-800">
           <nav className="flex flex-col space-y-4 px-4 py-4">
             {navItems.map((item) => (
               <a

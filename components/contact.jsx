@@ -4,12 +4,8 @@ import { useState } from "react"
 import { useForm } from "react-hook-form"
 import { motion } from "framer-motion"
 import { Send, Linkedin, Github, Mail, CheckCircle, Instagram, Facebook, Twitter } from "lucide-react"
-import { KineticText } from "./ui/kinetic-text"
+import MagneticButton from "./MagneticButton"
 
-/**
- * Contact section with form and social media links
- * @returns {JSX.Element}
- */
 export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
@@ -51,190 +47,157 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="py-16 md:py-24 bg-transparent">
-      <div className="container mx-auto px-4">
+    <section id="contact" className="pt-24 pb-12 relative z-10 bg-black overflow-hidden">
+      
+      {/* Massive Marquee */}
+      <div className="w-full overflow-hidden flex whitespace-nowrap mb-20 opacity-20 select-none pointer-events-none">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-12"
+          animate={{ x: [0, -1035] }}
+          transition={{ ease: "linear", duration: 10, repeat: Infinity }}
+          className="flex font-bold text-[15vw] tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-600"
         >
-          <h2 className="text-3xl font-bold w-fit mx-auto">
-            <KineticText as="span" text="Get In Touch" className="mx-1" />
-          </h2>
-          <div className="w-20 h-1 bg-yellow-400 mx-auto mt-2"></div>
-          <p className="text-slate-300 mt-4 max-w-2xl mx-auto">
-            Have a question or want to work together? Feel free to reach out!
-          </p>
+          <span className="mr-8">LET'S TALK</span>
+          <span className="mr-8">LET'S TALK</span>
+          <span className="mr-8">LET'S TALK</span>
+          <span className="mr-8">LET'S TALK</span>
         </motion.div>
+      </div>
 
-        <div className="flex flex-col md:flex-row gap-12">
+      <div className="container mx-auto px-4 max-w-6xl relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
+          
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="md:w-1/2"
+            transition={{ duration: 0.6 }}
           >
-            <h3 className="text-xl font-semibold text-slate-100 mb-6">Send Me a Message</h3>
-
-            {isSubmitted ? (
-              <div className="bg-green-900 text-green-300 p-4 rounded-lg flex items-center gap-2 mb-6">
-                <CheckCircle size={20} />
-                <span>Thank you for your message! I&apos;ll get back to you soon.</span>
-              </div>
-            ) : null}
-
-            <form onSubmit={handleSubmit(onSubmit)}>
-              <div className="mb-4">
-                <label htmlFor="name" className="block text-slate-300 mb-2">
-                  Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  {...register("name", { required: "Name is required" })}
-                  className="w-full px-4 py-3 border border-slate-700/50 bg-slate-800/40 text-slate-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:bg-slate-800/60 transition-colors"
-                  placeholder="Your Name"
-                />
-                {errors.name && <p className="text-red-500 mt-1">{errors.name.message}</p>}
-              </div>
-
-              <div className="mb-4">
-                <label htmlFor="email" className="block text-slate-300 mb-2">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  {...register("email", {
-                    required: "Email is required",
-                    pattern: {
-                      value: /^\S+@\S+$/i,
-                      message: "Invalid email address",
-                    },
-                  })}
-                  className="w-full px-4 py-3 border border-slate-700/50 bg-slate-800/40 text-slate-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:bg-slate-800/60 transition-colors"
-                  placeholder="your.email@example.com"
-                />
-                {errors.email && <p className="text-red-500 mt-1">{errors.email.message}</p>}
-              </div>
-
-              <div className="mb-6">
-                <label htmlFor="message" className="block text-slate-300 mb-2">
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  {...register("message", { required: "Message is required" })}
-                  rows={5}
-                  className="w-full px-4 py-3 border border-slate-700/50 bg-slate-800/40 text-slate-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:bg-slate-800/60 transition-colors"
-                  placeholder="Your message here..."
-                />
-                {errors.message && <p className="text-red-500 mt-1">{errors.message.message}</p>}
-              </div>
-
-              <motion.button
-                type="submit"
-                disabled={isSubmitting}
-                className="bg-yellow-400 hover:bg-yellow-500 text-slate-900 font-medium py-2 px-6 rounded-lg transition-all duration-300 flex items-center gap-2 disabled:opacity-70 transform hover:scale-105"
-                whileHover={{ y: -2 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                {isSubmitting ? (
-                  "Sending..."
-                ) : (
-                  <>
-                    Send Message
-                    <Send size={18} />
-                  </>
-                )}
-              </motion.button>
-            </form>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="md:w-1/2"
-          >
-            <h3 className="text-xl font-semibold text-slate-100 mb-6">Connect With Me</h3>
-
-            <p className="text-slate-300 mb-8 leading-relaxed">
-              I&apos;m always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
-              Feel free to reach out through the form or connect with me on social media.
+            <h2 className="text-5xl md:text-6xl font-bold text-white tracking-tight mb-6">
+              Got a project in mind?
+            </h2>
+            <p className="text-slate-400 text-lg leading-relaxed mb-12 max-w-md">
+              Whether it's a freelance opportunity, a full-time role, or just a quick chat about web architecture—my inbox is always open.
             </p>
 
-            <div className="space-y-4">
-              <a
+            <div className="space-y-6 mb-12">
+              <MagneticButton
                 href="mailto:opdsbanasya@gmail.com"
-                className="flex items-center gap-3 text-slate-300 hover:text-yellow-400 transition-colors p-2 rounded-lg hover:bg-slate-800"
+                className="flex items-center gap-4 text-xl text-white hover:text-yellow-400 transition-colors group"
               >
-                <Mail className="text-yellow-400" size={24} />
-                <span>opdsbanasya@gmail.com</span>
-              </a>
-
-              <a
-                href="https://www.linkedin.com/in/dharm-singh-saini/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-3 text-slate-300 hover:text-yellow-400 transition-colors p-2 rounded-lg hover:bg-slate-800"
-              >
-                <Linkedin className="text-yellow-400" size={24} />
-                <span>linkedin.com/in/dharm-singh-saini/</span>
-              </a>
-
-              <a
-                href="https://github.com/opdsbanasya"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-3 text-slate-300 hover:text-yellow-400 transition-colors p-2 rounded-lg hover:bg-slate-800"
-              >
-                <Github className="text-yellow-400" size={24} />
-                <span>github.com/opdsbanasya</span>
-              </a>
+                <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center group-hover:border-yellow-400 transition-colors">
+                  <Mail size={20} />
+                </div>
+                opdsbanasya@gmail.com
+              </MagneticButton>
             </div>
 
-            <div className="mt-8">
-              <h4 className="text-lg font-medium text-slate-100 mb-4">Social Media</h4>
+            <div>
+              <h4 className="text-sm uppercase tracking-widest text-slate-500 mb-6 font-semibold">Socials</h4>
               <div className="flex gap-4">
-                <motion.a
-                  href="https://www.instagram.com/oyee_dharm/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ y: -5 }}
-                  className="bg-yellow-400 text-slate-900 p-3 rounded-full hover:bg-yellow-500 transition-colors"
-                  aria-label="Instagram"
-                >
-                  <Instagram size={20} />
-                </motion.a>
-                <motion.a
-                  href="https://www.facebook.com/opdsbanasya"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ y: -5 }}
-                  className="bg-yellow-400 text-slate-900 p-3 rounded-full hover:bg-yellow-500 transition-colors"
-                  aria-label="Facebook"
-                >
-                  <Facebook size={20} />
-                </motion.a>
-                <motion.a
-                  href="https://x.com/opdsbanasya"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ y: -5 }}
-                  className="bg-yellow-400 text-slate-900 p-3 rounded-full hover:bg-yellow-500 transition-colors"
-                  aria-label="X"
-                >
-                  <Twitter size={20} />
-
-                </motion.a>
+                {[
+                  { icon: Linkedin, link: "https://www.linkedin.com/in/dharm-singh-saini/" },
+                  { icon: Github, link: "https://github.com/opdsbanasya" },
+                  { icon: Twitter, link: "https://x.com/opdsbanasya" },
+                  { icon: Instagram, link: "https://www.instagram.com/oyee_dharm/" },
+                ].map((social, i) => (
+                  <MagneticButton
+                    key={i}
+                    href={social.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-300 hover:bg-yellow-400 hover:text-black hover:border-yellow-400 transition-all duration-300"
+                  >
+                    <social.icon size={20} />
+                  </MagneticButton>
+                ))}
               </div>
             </div>
           </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="glass-card rounded-3xl p-8 md:p-10 relative overflow-hidden"
+          >
+            {/* Soft glow behind form */}
+            <div className="absolute top-0 right-0 w-64 h-64 bg-yellow-500/10 rounded-full blur-[80px] pointer-events-none"></div>
+            
+            <h3 className="text-2xl font-bold text-white mb-8">Send a message</h3>
+
+            {isSubmitted ? (
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="bg-green-500/10 border border-green-500/20 text-green-400 p-6 rounded-2xl flex flex-col items-center justify-center gap-4 text-center h-[300px]"
+              >
+                <CheckCircle size={48} className="text-green-500" />
+                <span className="text-xl font-medium">Message sent successfully!</span>
+                <span className="text-slate-400 text-sm">I'll get back to you within 24 hours.</span>
+              </motion.div>
+            ) : (
+              <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 relative z-10">
+                <div className="space-y-2">
+                  <label htmlFor="name" className="text-sm font-medium text-slate-400 ml-2">Your Name</label>
+                  <input
+                    type="text"
+                    id="name"
+                    {...register("name", { required: "Name is required" })}
+                    className="w-full px-5 py-4 bg-black/40 border border-white/10 text-white rounded-2xl focus:outline-none focus:border-yellow-400/50 focus:bg-black/60 transition-all duration-300 placeholder:text-slate-600"
+                    placeholder="John Doe"
+                  />
+                  {errors.name && <p className="text-red-400 text-sm ml-2">{errors.name.message}</p>}
+                </div>
+
+                <div className="space-y-2">
+                  <label htmlFor="email" className="text-sm font-medium text-slate-400 ml-2">Your Email</label>
+                  <input
+                    type="email"
+                    id="email"
+                    {...register("email", {
+                      required: "Email is required",
+                      pattern: {
+                        value: /^\S+@\S+$/i,
+                        message: "Invalid email address",
+                      },
+                    })}
+                    className="w-full px-5 py-4 bg-black/40 border border-white/10 text-white rounded-2xl focus:outline-none focus:border-yellow-400/50 focus:bg-black/60 transition-all duration-300 placeholder:text-slate-600"
+                    placeholder="john@example.com"
+                  />
+                  {errors.email && <p className="text-red-400 text-sm ml-2">{errors.email.message}</p>}
+                </div>
+
+                <div className="space-y-2">
+                  <label htmlFor="message" className="text-sm font-medium text-slate-400 ml-2">Message</label>
+                  <textarea
+                    id="message"
+                    {...register("message", { required: "Message is required" })}
+                    rows={4}
+                    className="w-full px-5 py-4 bg-black/40 border border-white/10 text-white rounded-2xl focus:outline-none focus:border-yellow-400/50 focus:bg-black/60 transition-all duration-300 placeholder:text-slate-600 resize-none"
+                    placeholder="Tell me about your project..."
+                  />
+                  {errors.message && <p className="text-red-400 text-sm ml-2">{errors.message.message}</p>}
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-4 px-6 rounded-2xl transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed group"
+                >
+                  {isSubmitting ? (
+                    <span className="animate-pulse">Sending...</span>
+                  ) : (
+                    <>
+                      <span>Send Message</span>
+                      <Send size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                    </>
+                  )}
+                </button>
+              </form>
+            )}
+          </motion.div>
+
         </div>
       </div>
     </section>
