@@ -3,9 +3,10 @@
 import { useState, useEffect } from "react"
 import { Menu, X } from "lucide-react"
 import { KineticText } from "@/components/ui/kinetic-text"
+import Link from "next/link"
 
 const navItems = [
-  { name: "Home", href: "#home" },
+  { name: "Home", href: "/" },
   { name: "About", href: "#about" },
   { name: "Technical", href: "#technical" },
   { name: "Experience", href: "#experience" },
@@ -18,6 +19,7 @@ const navItems = [
  * Navigation bar component with smooth scrolling and active section highlighting
  * @returns {JSX.Element}
  */
+
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [activeSection, setActiveSection] = useState("home")
@@ -70,8 +72,8 @@ export default function Navbar() {
         }`}
     >
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-        <a
-          href="#home"
+        <Link
+          href="/"
           className="text-2xl font-bold text-yellow-400 hover:text-yellow-300 transition-colors"
           onClick={(e) => handleNavClick(e, "#home")}
         >
@@ -79,11 +81,11 @@ export default function Navbar() {
           <span className="text-yellow-400 font-[monospace] font-bold flex items-center">
             {`<`}<KineticText as="span" text="opdsbanasya" className="mx-1" />{`/>`}
           </span>
-        </a>
+        </Link>
 
         <nav className="hidden lg:flex space-x-8">
           {navItems.map((item) => (
-            <a
+            <Link
               key={item.name}
               href={item.href}
               className={`text-sm font-medium transition-colors hover:text-yellow-400 ${activeSection === item.href.substring(1)
@@ -93,7 +95,7 @@ export default function Navbar() {
               onClick={(e) => handleNavClick(e, item.href)}
             >
               <KineticText as="span" text={item.name} className="mx-1" />
-            </a>
+            </Link>
           ))}
         </nav>
 
