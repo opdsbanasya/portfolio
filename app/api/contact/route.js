@@ -7,11 +7,11 @@ export async function POST(req) {
   }
 
   try {
-    const { name, email, message } = await req.json();
+    const { name, email, contactNumber, message } = await req.json();
 
     // Validate input
-    if (!name || !email || !message) {
-      return NextResponse.json({ message: "All fields are required" }, { status: 400 });
+    if (!name || !email || !contactNumber || !message) {
+      return NextResponse.json({ message: "All required fields must be provided" }, { status: 400 });
     }
 
     // Configure Nodemailer
@@ -28,33 +28,50 @@ export async function POST(req) {
       to: "opdsbanasya@gmail.com", // Change to your receiving email address
       subject: "New Contact Form Submission",
       replyTo: email,
-      text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
+      text: `Name: ${name}\nEmail: ${email}\nContact Number: ${contactNumber}\nMessage: ${message}`,
       html: `
-      <div style="background: #2563eb; color: #ffffff; padding: 20px; text-align: center;"> 
-        <h2 style="margin: 0;">📩 New Contact Form Submission</h2> 
-      </div> 
-      
-      <div style="padding: 25px;"> 
-        <table style="width: 100%; border-collapse: collapse;"> 
-          <tr> 
-            <td style="padding: 12px 0; font-weight: bold; width: 120px;">Name</td> 
-            <td style="padding: 12px 0;">${name}</td> 
-          </tr> 
-          <tr> 
-            <td style="padding: 12px 0; font-weight: bold;">Email</td> 
-            <td style="padding: 12px 0;"> <a href="mailto:${email}" style="color: #2563eb; text-decoration: none;"> ${email} </a> </td> 
-          </tr> 
-          <tr> 
-            <td style="padding: 12px 0; font-weight: bold; vertical-align: top;">Message</td> 
-            <td style="padding: 12px 0;"> 
-              <div style="background: #f8fafc; border-left: 4px solid #2563eb; padding: 15px; border-radius: 6px;"> ${message} </div> 
-            </td> 
-          </tr> 
-        </table> 
+      <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; max-width: 600px; margin: 0 auto; background-color: #0a0a0a; color: #ffffff; border-radius: 16px; overflow: hidden; border: 1px solid #333; box-shadow: 0 0 40px rgba(250, 204, 21, 0.1);">
+        
+        <!-- Header -->
+        <div style="background: linear-gradient(135deg, rgba(250, 204, 21, 0.15) 0%, transparent 100%); padding: 30px 20px; text-align: center; border-bottom: 1px solid #222;"> 
+          <h2 style="margin: 0; color: #facc15; font-size: 24px; letter-spacing: -0.5px;">New Project Inquiry</h2> 
+          <p style="margin: 10px 0 0 0; color: #94a3b8; font-size: 14px;">You have received a new message from your portfolio.</p>
         </div> 
-        <div style="background: #f8fafc; padding: 15px; text-align: center; color: #64748b; font-size: 12px;"> 
-          This email was sent from your <a href="https://dharm-portfolio.vercel.app/" style="color: #2563eb; text-decoration: none;"> Portfolio </a> contact form. 
-        </div>`,
+        
+        <!-- Content -->
+        <div style="padding: 30px 20px;"> 
+          
+          <div style="margin-bottom: 25px;">
+            <p style="margin: 0 0 5px 0; color: #94a3b8; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">Name</p>
+            <p style="margin: 0; font-size: 16px; font-weight: 600; color: #ffffff;">\${name}</p>
+          </div>
+
+          <div style="margin-bottom: 25px;">
+            <p style="margin: 0 0 5px 0; color: #94a3b8; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">Email</p>
+            <p style="margin: 0; font-size: 16px;">
+              <a href="mailto:\${email}" style="color: #facc15; text-decoration: none; font-weight: 500;">\${email}</a>
+            </p>
+          </div>
+
+          <div style="margin-bottom: 25px;">
+            <p style="margin: 0 0 5px 0; color: #94a3b8; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">Contact Number</p>
+            <p style="margin: 0; font-size: 16px; font-weight: 500; color: #ffffff;">\${contactNumber}</p>
+          </div>
+
+          <div style="margin-bottom: 10px;">
+            <p style="margin: 0 0 10px 0; color: #94a3b8; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">Message</p>
+            <div style="background-color: rgba(255,255,255,0.03); border-left: 3px solid #facc15; padding: 15px 20px; border-radius: 0 8px 8px 0; color: #e2e8f0; line-height: 1.6; font-size: 15px;">
+              \${message.replace(/\\n/g, '<br>')}
+            </div> 
+          </div>
+
+        </div> 
+        
+        <!-- Footer -->
+        <div style="background-color: rgba(255,255,255,0.02); padding: 20px; text-align: center; color: #64748b; font-size: 12px; border-top: 1px solid #222;"> 
+          This email was sent securely from <a href="https://iamdharm.me" style="color: #facc15; text-decoration: none;">iamdharm.me</a>. 
+        </div>
+      </div>`,
     };
 
     await transporter.sendMail(mailOptions);

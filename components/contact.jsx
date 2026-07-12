@@ -63,7 +63,7 @@ export default function Contact() {
         </motion.div>
       </div>
 
-      <div className="container mx-auto px-4 max-w-6xl relative z-10">
+      <div className="container mx-auto max-w-6xl relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
           
           <motion.div
@@ -145,7 +145,7 @@ export default function Contact() {
                     id="name"
                     {...register("name", { required: "Name is required" })}
                     className="w-full px-5 py-4 bg-black/40 border border-white/10 text-white rounded-2xl focus:outline-none focus:border-yellow-400/50 focus:bg-black/60 transition-all duration-300 placeholder:text-slate-600"
-                    placeholder="John Doe"
+                    placeholder="Dharm Singh"
                   />
                   {errors.name && <p className="text-red-400 text-sm ml-2">{errors.name.message}</p>}
                 </div>
@@ -163,9 +163,21 @@ export default function Contact() {
                       },
                     })}
                     className="w-full px-5 py-4 bg-black/40 border border-white/10 text-white rounded-2xl focus:outline-none focus:border-yellow-400/50 focus:bg-black/60 transition-all duration-300 placeholder:text-slate-600"
-                    placeholder="john@example.com"
+                    placeholder="dharm@example.com"
                   />
                   {errors.email && <p className="text-red-400 text-sm ml-2">{errors.email.message}</p>}
+                </div>
+
+                <div className="space-y-2">
+                  <label htmlFor="contactNumber" className="text-sm font-medium text-slate-400 ml-2">Contact Number *</label>
+                  <input
+                    type="tel"
+                    id="contactNumber"
+                    {...register("contactNumber", { required: "Contact number is required" })}
+                    className="w-full px-5 py-4 bg-black/40 border border-white/10 text-white rounded-2xl focus:outline-none focus:border-yellow-400/50 focus:bg-black/60 transition-all duration-300 placeholder:text-slate-600"
+                    placeholder="+91 98765 43210"
+                  />
+                  {errors.contactNumber && <p className="text-red-400 text-sm ml-2">{errors.contactNumber.message}</p>}
                 </div>
 
                 <div className="space-y-2">
