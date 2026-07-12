@@ -43,25 +43,25 @@ export async function POST(req) {
           
           <div style="margin-bottom: 25px;">
             <p style="margin: 0 0 5px 0; color: #94a3b8; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">Name</p>
-            <p style="margin: 0; font-size: 16px; font-weight: 600; color: #ffffff;">\${name}</p>
+            <p style="margin: 0; font-size: 16px; font-weight: 600; color: #ffffff;">${name}</p>
           </div>
 
           <div style="margin-bottom: 25px;">
             <p style="margin: 0 0 5px 0; color: #94a3b8; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">Email</p>
             <p style="margin: 0; font-size: 16px;">
-              <a href="mailto:\${email}" style="color: #facc15; text-decoration: none; font-weight: 500;">\${email}</a>
+              <a href="mailto:${email}" style="color: #facc15; text-decoration: none; font-weight: 500;">${email}</a>
             </p>
           </div>
 
           <div style="margin-bottom: 25px;">
             <p style="margin: 0 0 5px 0; color: #94a3b8; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">Contact Number</p>
-            <p style="margin: 0; font-size: 16px; font-weight: 500; color: #ffffff;">\${contactNumber}</p>
+            <p style="margin: 0; font-size: 16px; font-weight: 500; color: #ffffff;">${contactNumber}</p>
           </div>
 
           <div style="margin-bottom: 10px;">
             <p style="margin: 0 0 10px 0; color: #94a3b8; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">Message</p>
             <div style="background-color: rgba(255,255,255,0.03); border-left: 3px solid #facc15; padding: 15px 20px; border-radius: 0 8px 8px 0; color: #e2e8f0; line-height: 1.6; font-size: 15px;">
-              \${message.replace(/\\n/g, '<br>')}
+              ${message.replace(/\\n/g, '<br>')}
             </div> 
           </div>
 
