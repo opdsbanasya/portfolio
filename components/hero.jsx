@@ -60,7 +60,7 @@ export default function Hero() {
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
             className="text-3xl md:text-5xl lg:text-6xl font-medium tracking-tight text-yellow-400/90 text-glow italic"
           >
-            Fullstack Developer.
+            Software Developer.
           </motion.h2>
         </div>
 
