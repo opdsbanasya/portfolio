@@ -25,7 +25,7 @@ export async function POST(req) {
 
     const mailOptions = {
       from: `"${name}" <${email}>`,
-      to: "opdsbanasya@gmail.com", // Change to your receiving email address
+      to: "dharm.s.dev@gmail.com", // Change to your receiving email address
       subject: "New Contact Form Submission",
       replyTo: email,
       text: `Name: ${name}\nEmail: ${email}\nContact Number: ${contactNumber}\nMessage: ${message}`,

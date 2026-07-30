@@ -81,13 +81,13 @@ export default function Contact() {
 
             <div className="space-y-6 mb-12">
               <MagneticButton
-                href="mailto:opdsbanasya@gmail.com"
+                href="mailto:dharm.s.dev@gmail.com"
                 className="flex items-center gap-4 text-xl text-white hover:text-yellow-400 transition-colors group"
               >
                 <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center group-hover:border-yellow-400 transition-colors">
                   <Mail size={20} />
                 </div>
-                opdsbanasya@gmail.com
+                dharm.s.dev@gmail.com
               </MagneticButton>
             </div>
 
