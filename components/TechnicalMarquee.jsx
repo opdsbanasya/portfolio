@@ -10,7 +10,8 @@ import {
   SiShadcnui, SiVercel, SiNetlify, SiGithubpages,
   SiVite, SiEslint, SiPrettier, SiNotion,
   SiTypescript,
-  SiPrisma
+  SiPrisma,
+  SiCplusplus
 } from "react-icons/si"
 import { VscVscode, VscAzure } from "react-icons/vsc";
 import { FaAws } from "react-icons/fa";
