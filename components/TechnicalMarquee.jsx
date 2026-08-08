@@ -29,6 +29,7 @@ const skillsRow1 = [
   { name: "Express", icon: SiExpress, color: "#ffffff" },
   { name: "Python", icon: SiPython, color: "#3776AB" },
   { name: "FastAPI", icon: SiFastapi, color: "#009688" },
+  { name: "C++", icon: SiCplusplus, color: "#00599C" },
   { name: "MongoDB", icon: SiMongodb, color: "#47A248" },
   { name: "PostgreSQL", icon: SiPostgresql, color: "#4169E1" },
   { name: "MySQL", icon: SiMysql, color: "#4479A1" },
