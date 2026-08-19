@@ -1,28 +1,5 @@
 export const previousProjects = [
   // Professional Work - Featured
-  
-  {
-    title: "Coreweb Software Solutions",
-    description:
-      "Modern portfolio website for freelance design agency. Built with Next.js SSR for optimal SEO and CMS integration for dynamic content management.",
-    image: "/portfolio/coreweb.png",
-    tags: ["Next.js", "React", "Tailwind CSS", "Headless CMS", "SEO"],
-    github: null,
-    demo: "https://corewebsoftware.in/",
-    category: "Professional",
-    isdemo: false,
-    company: {
-      name: "Coreweb Software Solutions",
-      logo: "/companies/corewebLogo.png",
-      link: "https://corewebsoftware.in/"
-    },
-    featured: true,
-    bullets: [
-      "Architected Next.js SSR application with dynamic routes for portfolio projects and blog posts.",
-      "Integrated headless CMS for content management, enabling non-technical staff to publish updates.",
-      "Implemented SEO optimizations: meta tags, structured data, image optimization, and sitemap generation.",
-    ],
-  },
   {
     title: "Construction-bazaar",
     description:
@@ -46,10 +23,50 @@ export const previousProjects = [
     ],
   },
   {
+    title: "Second Brain",
+    description:
+      "AI-Powered Knowledge Management Platform for saving, organizing, searching, and retrieving notes, links, articles, videos, and documents.",
+    image: "/portfolio/second-brain.png",
+    tags: ["React.js", "Node.js", "Express.js", "MongoDB", "JWT", "REST API", "MCP Server"],
+    github: "https://github.com/opdsbanasya/second-brain",
+    demo: "https://secondbrain.iamdharm.me",
+    isdemo: true,
+    category: "Personal",
+    featured: true,
+    bullets: [
+      "Built a full-stack knowledge management platform for saving, organizing, searching, and retrieving various media formats.",
+      "Developed secure REST APIs with Node.js, Express.js, and MongoDB, implementing JWT authentication and API keys.",
+      "Implemented full-text search, tag-based organization, rich-text editing, and shareable public links with expiry.",
+      "Built an MCP server exposing tools and prompts for AI clients such as Claude Desktop and Cursor, enabling AI-powered knowledge retrieval."
+    ],
+  },
+  {
+    title: "Coreweb Software Solutions",
+    description:
+      "Modern portfolio website for freelance design agency. Built with Next.js SSR for optimal SEO and CMS integration for dynamic content management.",
+    image: "/portfolio/coreweb.png",
+    tags: ["Next.js", "React", "Tailwind CSS", "Headless CMS", "SEO"],
+    github: null,
+    demo: "https://corewebsoftware.in/",
+    category: "Professional",
+    isdemo: false,
+    company: {
+      name: "Coreweb Software Solutions",
+      logo: "/companies/corewebLogo.png",
+      link: "https://corewebsoftware.in/"
+    },
+    featured: true,
+    bullets: [
+      "Architected Next.js SSR application with dynamic routes for portfolio projects and blog posts.",
+      "Integrated headless CMS for content management, enabling non-technical staff to publish updates.",
+      "Implemented SEO optimizations: meta tags, structured data, image optimization, and sitemap generation.",
+    ],
+  },
+  {
     title: "Profile Media",
     description:
       "Profile Media delivers premium raw materials to 500+ clients across India, connecting global brands with local creators through trusted quality and industry-leading standards.",
-    image: "/portfolio/profilemedia.gif",
+    image: "/portfolio/profilemedia.png",
     tags: ["React", "NextJS", "Tailwind CSS", "Framer Motion"],
     github: null,
     demo: "https://profilemedia.in/",
@@ -133,7 +150,7 @@ export const previousProjects = [
       "Optimized database queries with PostgreSQL indexing and connection pooling, reducing latency from 500ms to 50ms per request.",
     ],
   },
-  
+
   {
     title: "Snoh Fusion",
     description:
@@ -191,7 +208,7 @@ export const previousProjects = [
       "Built responsive UI matching Netflix design with smooth animations and mobile optimization.",
     ],
   },
-  
+
   {
     title: "TGI Hotel Landing Page",
     description:

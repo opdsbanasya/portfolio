@@ -24,9 +24,8 @@ const ProjectCard = ({ project, index }) => {
     <motion.div
       ref={ref}
       style={{ opacity, scale }}
-      className={`flex flex-col lg:flex-row items-center gap-12 lg:gap-24 mb-32 md:mb-48 ${
-        isEven ? "" : "lg:flex-row-reverse"
-      }`}
+      className={`flex flex-col lg:flex-row items-center gap-12 lg:gap-24 mb-32 md:mb-48 ${isEven ? "" : "lg:flex-row-reverse"
+        }`}
     >
       <div className="w-full lg:w-3/5 overflow-hidden rounded-3xl relative aspect-[4/3] sm:aspect-video group">
         <div className="absolute inset-0 bg-yellow-500/20 mix-blend-overlay z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
@@ -50,11 +49,11 @@ const ProjectCard = ({ project, index }) => {
             <span className="text-slate-400 text-sm">{project.company.name}</span>
           )}
         </div>
-        
+
         <h3 className="text-4xl md:text-5xl font-bold mb-6 text-white tracking-tight group-hover:text-yellow-400 transition-colors">
           {project.title}
         </h3>
-        
+
         <p className="text-slate-300 text-lg leading-relaxed mb-8">
           {project.description}
         </p>
@@ -125,7 +124,7 @@ export default function ParallaxProjects() {
           >
             <h3 className="text-3xl md:text-4xl font-bold">Other Explorations</h3>
           </motion.div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {otherProjects.map((project) => (
               <motion.a
