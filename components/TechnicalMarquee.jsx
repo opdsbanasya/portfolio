@@ -21,6 +21,8 @@ import { LucideBadgeIndianRupee, LucideMailOpen } from "lucide-react";
 import { CiStreamOn } from "react-icons/ci";
 import { RiGeminiFill } from "react-icons/ri";
 
+import SectionArch from "./SectionArch";
+
 const skillsRow1 = [
   { name: "React", icon: SiReact, color: "#61DAFB" },
   { name: "Next.js", icon: SiNextdotjs, color: "#ffffff" },
@@ -90,19 +92,11 @@ const MarqueeRow = ({ items, reverse = false }) => {
 export default function TechnicalMarquee() {
   return (
     <section id="technical" className="py-24 relative z-10 bg-black overflow-hidden border-t border-white/5">
-      <div className="container mx-auto px-4 max-w-7xl mb-16 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white to-white/50 mb-4">
-            Technical Arsenal
-          </h2>
-          <p className="text-slate-400 text-lg max-w-2xl mx-auto">
-            A comprehensive list of the tools, frameworks, and languages I use to build scalable digital experiences.
-          </p>
-        </motion.div>
+      <div className="container mx-auto px-4 max-w-7xl mb-12 text-center">
+        <SectionArch
+          title="Digital Shastra"
+          subtitle="Modern Web Engineering meets Classical Craftsmanship • Core languages, frameworks, and cloud systems powering resilient architectures."
+        />
       </div>
 
       <div className="flex flex-col gap-8 -mx-10 md:-mx-20 lg:-mx-32 mask-horizontal-fades">

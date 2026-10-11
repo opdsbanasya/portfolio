@@ -5,29 +5,22 @@ import { Check, Rocket, Code2, Monitor, Sparkles } from "lucide-react"
 import MagneticButton from "./MagneticButton"
 import Blob from "./Blob"
 
+import SectionArch from "./SectionArch";
+
 export default function Pricing() {
   return (
     <section id="pricing" className="py-24 relative z-10 overflow-hidden bg-black border-t border-white/5">
       {/* Background Blobs */}
       <div className="absolute inset-0 pointer-events-none z-0 flex items-center justify-center opacity-30">
-        <Blob color="bg-yellow-500/20" size="w-[600px] h-[600px]" className="-left-40 top-0" duration={22} />
-        <Blob color="bg-blue-500/10" size="w-[500px] h-[500px]" className="-right-20 bottom-0" duration={28} delay={4} />
+        <Blob color="bg-[#D4A017]/15" size="w-[600px] h-[600px]" className="-left-40 top-0" duration={22} />
+        <Blob color="bg-[#D97A6D]/10" size="w-[500px] h-[500px]" className="-right-20 bottom-0" duration={28} delay={4} />
       </div>
 
       <div className="container mx-auto px-4 max-w-7xl relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl md:text-6xl font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white to-white/50 mb-6">
-            Freelance Pricing
-          </h2>
-          <p className="text-slate-400 text-lg max-w-xl mx-auto">
-            Transparent pricing for high-quality web solutions. Whether you need a standard portfolio or a complex web application, I've got you covered.
-          </p>
-        </motion.div>
+        <SectionArch
+          title="Freelance Pricing"
+          subtitle="Transparent pricing for high-quality web solutions. Built with craftsmanship, optimized for performance."
+        />
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mx-auto">
           

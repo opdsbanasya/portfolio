@@ -74,12 +74,21 @@ export default function Navbar() {
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <Link
           href="/"
-          className="text-2xl font-bold text-yellow-400 hover:text-yellow-300 transition-colors"
+          className="group relative flex items-center px-3.5 py-1.5 rounded-xl border border-[#D4A017]/30 hover:border-[#D4A017]/70 bg-black/40 hover:bg-[#D4A017]/5 backdrop-blur-md transition-all duration-300 shadow-[0_0_15px_rgba(212,160,23,0.1)]"
           onClick={(e) => handleNavClick(e, "#home")}
         >
+          {/* Mini Jharokha Arch Crest atop Logo */}
+          <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 px-1.5 bg-slate-900/90 text-[#D4A017] pointer-events-none opacity-80 group-hover:opacity-100 transition-opacity">
+            <svg width="22" height="6" viewBox="0 0 22 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M 0 6 C 3 2, 8 2, 11 0 C 14 2, 19 2, 22 6" stroke="currentColor" strokeWidth="1.2" />
+            </svg>
+          </div>
+
           <span className="sr-only">Home</span>
-          <span className="text-yellow-400 font-[monospace] font-bold flex items-center">
-            {`<`}<KineticText as="span" text="opdsbanasya" className="mx-1" />{`/>`}
+          <span className="text-[#D4A017] group-hover:text-amber-300 font-[monospace] font-bold flex items-center text-sm sm:text-base tracking-tight transition-colors">
+            <span className="text-amber-500/80">{`<`}</span>
+            <KineticText as="span" text="opdsbanasya" className="mx-1 text-white group-hover:text-amber-200" />
+            <span className="text-amber-500/80">{`/>`}</span>
           </span>
         </Link>
 
@@ -88,8 +97,8 @@ export default function Navbar() {
             <Link
               key={item.name}
               href={item.href}
-              className={`text-sm font-medium transition-colors hover:text-yellow-400 ${activeSection === item.href.substring(1)
-                  ? "text-yellow-400 border-b-2 border-yellow-400"
+              className={`text-sm font-medium transition-colors hover:text-[#D4A017] ${activeSection === item.href.substring(1)
+                  ? "text-[#D4A017] border-b-2 border-[#D4A017]"
                   : "text-slate-300"
                 }`}
               onClick={(e) => handleNavClick(e, item.href)}

@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { motion, useScroll, useSpring } from "framer-motion";
 import { MapPin, MonitorSmartphone, Briefcase } from "lucide-react";
 import Image from "next/image";
+import SectionArch from "./SectionArch";
 
 const experiences = [
   {
@@ -117,16 +118,10 @@ export default function Experience() {
   return (
     <section id="experience" className="py-24 relative z-10 bg-black">
       <div className="container mx-auto px-4 max-w-5xl">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-20"
-        >
-          <h2 className="text-5xl md:text-6xl font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white to-white/50">
-            Journey
-          </h2>
-        </motion.div>
+        <SectionArch
+          title="Journey"
+          subtitle="A timeline of engineering production web systems, real-time architectures, and scalable APIs."
+        />
 
         <div className="relative" ref={containerRef}>
           {/* Scroll Progress Line (Desktop) */}

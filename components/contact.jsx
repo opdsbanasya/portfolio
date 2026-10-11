@@ -54,7 +54,7 @@ export default function Contact() {
         <motion.div
           animate={{ x: [0, -1035] }}
           transition={{ ease: "linear", duration: 10, repeat: Infinity }}
-          className="flex font-bold text-[15vw] tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-600"
+          className="flex font-bold text-[15vw] tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-[#D4A017] via-[#D97A6D] to-[#D4A017]"
         >
           <span className="mr-8">LET'S TALK</span>
           <span className="mr-8">LET'S TALK</span>
@@ -98,7 +98,7 @@ export default function Contact() {
                   { icon: Linkedin, link: "https://www.linkedin.com/in/dharm-singh-saini/" },
                   { icon: Github, link: "https://github.com/opdsbanasya" },
                   { icon: Twitter, link: "https://x.com/opdsbanasya" },
-                  { icon: Instagram, link: "https://www.instagram.com/oyee_dharm/" },
+                  { icon: Instagram, link: "https://www.instagram.com/iamdharm.me/" },
                 ].map((social, i) => (
                   <MagneticButton
                     key={i}
@@ -195,7 +195,7 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-4 px-6 rounded-2xl transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed group"
+                  className="w-full bg-[#D4A017] hover:bg-[#e2ad23] text-black font-semibold py-4 px-6 rounded-2xl transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed group shadow-[0_0_20px_rgba(212,160,23,0.25)] hover:shadow-[0_0_30px_rgba(212,160,23,0.4)]"
                 >
                   {isSubmitting ? (
                     <span className="animate-pulse">Sending...</span>

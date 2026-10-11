@@ -6,6 +6,7 @@ import { previousProjects } from "@/data/previous-projects";
 import Image from "next/image";
 import { ExternalLink, Github } from "lucide-react";
 import MagneticButton from "./MagneticButton";
+import SectionArch from "./SectionArch";
 
 const ProjectCard = ({ project, index }) => {
   const ref = useRef(null);
@@ -92,22 +93,10 @@ export default function ParallaxProjects() {
   return (
     <section id="projects" className="py-24 relative z-10 bg-black">
       <div className="container mx-auto px-4 max-w-7xl">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="mb-24 md:mb-32 flex flex-col md:flex-row items-end justify-between border-b border-white/10 pb-10"
-        >
-          <div>
-            <h2 className="text-5xl md:text-7xl font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-white to-white/50">
-              Selected Work
-            </h2>
-          </div>
-          <p className="text-slate-400 max-w-sm text-right hidden md:block">
-            A showcase of enterprise applications, scalable backends, and beautiful digital experiences.
-          </p>
-        </motion.div>
+        <SectionArch
+          title="Selected Work"
+          subtitle="Enterprise platforms, scalable microservices, and bespoke web solutions engineered with precision."
+        />
 
         <div className="mt-20">
           {featuredProjects.map((project, index) => (

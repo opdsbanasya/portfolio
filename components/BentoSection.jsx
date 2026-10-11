@@ -14,6 +14,7 @@ import {
   SiTypescript,
   SiExpress
 } from "react-icons/si";
+import SectionArch from "./SectionArch";
 import Blob from "./Blob";
 
 const MotionDiv = motion.div;
@@ -23,12 +24,17 @@ export default function BentoSection() {
     <section id="about" className="py-24 relative z-10 overflow-hidden">
       {/* Background Blobs */}
       <div className="absolute inset-0 pointer-events-none z-0 flex items-center justify-center opacity-40">
-        <Blob color="bg-yellow-500/20" size="w-[500px] h-[500px]" className="-top-20 -left-20" duration={20} />
-        <Blob color="bg-blue-500/20" size="w-[600px] h-[600px]" className="top-1/2 -right-40" duration={25} delay={2} />
+        <Blob color="bg-[#D4A017]/15" size="w-[500px] h-[500px]" className="-top-20 -left-20" duration={20} />
+        <Blob color="bg-[#D97A6D]/15" size="w-[600px] h-[600px]" className="top-1/2 -right-40" duration={25} delay={2} />
         <Blob color="bg-purple-500/10" size="w-[400px] h-[400px]" className="-bottom-20 left-1/4" duration={18} delay={5} />
       </div>
 
       <div className="container mx-auto px-4 max-w-7xl relative z-10">
+        <SectionArch
+          title="Craft & Philosophy"
+          subtitle="Born and raised in Rajasthan, building modern web applications with the spirit of Rajasthan craftsmanship. From Jaipur to the global web."
+        />
+
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 auto-rows-[300px]">
           
           {/* About Me Card (Large) */}
@@ -37,22 +43,25 @@ export default function BentoSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="md:col-span-2 lg:col-span-2 row-span-2 glass-card rounded-3xl p-8 flex flex-col justify-between overflow-hidden relative group"
+            className="md:col-span-2 lg:col-span-2 row-span-2 glass-card rounded-3xl p-8 flex flex-col justify-between overflow-hidden relative group border border-white/5 hover:border-[#D4A017]/30 transition-colors"
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-[#D4A017]/10 via-[#D97A6D]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             <div>
-              <h3 className="text-3xl font-bold mb-6 text-white tracking-tight">Who I am</h3>
-              <p className="text-slate-300 text-lg leading-relaxed mb-6">
-                I am a results-driven Full Stack Developer based in Jaipur, specializing in building production-grade, scalable web architectures. With a core focus on the MERN Stack and Python (FastAPI), I bridge the gap between complex backend logic and seamless, high-performance user interfaces.
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#D4A017]/10 border border-[#D4A017]/30 text-xs font-mono text-[#D4A017] mb-4">
+                <span>Spirit of Craftsmanship</span>
+              </div>
+              <h3 className="text-3xl font-bold mb-4 text-white tracking-tight">Who I Am</h3>
+              <p className="text-slate-200 text-lg leading-relaxed mb-6 font-light">
+                <strong className="text-white font-medium">Born and raised in Rajasthan</strong>, I build modern web applications infused with the spirit of Rajasthan craftsmanship—meticulous detail, enduring resilience, and elegant structure. <span className="text-[#D4A017] font-normal">From Jaipur to the global web</span>, I bridge robust backend logic with smooth, high-impact digital experiences.
               </p>
               <div className="space-y-4 text-slate-400">
                 <div className="flex items-start gap-3">
-                  <Zap className="text-yellow-400 shrink-0 mt-1" size={20} />
-                  <p><strong className="text-white">Backend Excellence:</strong> Engineered real-time platforms and RESTful APIs with high availability.</p>
+                  <Zap className="text-[#D4A017] shrink-0 mt-1" size={20} />
+                  <p><strong className="text-white">Backend Resilience:</strong> Architecting real-time systems and scalable REST/FastAPI endpoints with high concurrency.</p>
                 </div>
                 <div className="flex items-start gap-3">
-                  <Zap className="text-yellow-400 shrink-0 mt-1" size={20} />
-                  <p><strong className="text-white">Performance-First:</strong> Optimizing SEO and load times using Next.js (SSR).</p>
+                  <Zap className="text-[#D4A017] shrink-0 mt-1" size={20} />
+                  <p><strong className="text-white">Performance Mastery:</strong> Optimizing SEO, Core Web Vitals, and sub-second load times using Next.js (SSR) & React.</p>
                 </div>
               </div>
             </div>
@@ -93,12 +102,12 @@ export default function BentoSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="glass-card rounded-3xl p-8 flex flex-col items-center justify-center text-center relative overflow-hidden group"
+            className="glass-card rounded-3xl p-8 flex flex-col items-center justify-center text-center relative overflow-hidden group border border-white/5 hover:border-[#D4A017]/30 transition-colors"
           >
             <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1599661559886-22a3089d81d4?q=80&w=600&auto=format&fit=crop')] bg-cover bg-center opacity-10 group-hover:opacity-20 transition-opacity duration-500 mix-blend-luminosity"></div>
-            <MapPin size={48} className="text-yellow-400 mb-4 drop-shadow-[0_0_15px_rgba(251,191,36,0.5)]" />
-            <h4 className="text-xl font-bold text-white mb-2">Jaipur</h4>
-            <p className="text-slate-400">Rajasthan, India</p>
+            <MapPin size={44} className="text-[#D4A017] mb-3 drop-shadow-[0_0_15px_rgba(212,160,23,0.5)]" />
+            <h4 className="text-xl font-bold text-white mb-1">Jaipur, Pink City</h4>
+            <p className="text-xs font-mono text-amber-200/80 uppercase tracking-wider">Rajasthan, India</p>
           </MotionDiv>
 
           {/* Status Card (Small) */}
